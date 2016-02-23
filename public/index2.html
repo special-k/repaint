@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 >
+    <title>Repaint</title>
+  </head>
+  <body>
+    <div id=time style="font-size: 24px;"></div>
+    <div id=averageTime style="font-size: 24px;"></div>
+    <div id=main></div>
+    <script>
+      'use strict';
+      var main = document.getElementById('main'), timeEl = document.getElementById('time'), averageTimeEl = document.getElementById('averageTime'),
+      a = [], i, el, el2, text, t, t3, f, diffDom1, diffDom2, nv, newTime, bestTime = 100000000, totalTime = 0, s = [], n = 300;
+      for(i = 0; i < n; i++){
+        text = document.createTextNode('0');
+        el = document.createElement('div');
+        el2 = document.createElement('div');
+        a.push(text);
+        main.appendChild(el2);
+        el2.appendChild(el);
+        el.appendChild(text);
+      }
+
+      s[0] = '';
+      s[1] = '';
+      for(i = 0; i < n; i++){
+        s[0] += '<div><div>1</div></div>'
+        s[1] += '<div><div>2</div></div>'
+      }
+
+      t = 0;
+      nv = 1;
+
+      f = function(t2){
+        if (t2 - t > n) {
+          t = t2;
+          t3 = new Date
+          diffDom1(nv)
+          //diffDom2(nv)
+          newTime = new Date - t3
+          if (bestTime > newTime) {
+            bestTime = newTime;
+            timeEl.innerHTML = bestTime;
+          }
+          totalTime += newTime;
+          averageTimeEl.innerHTML = totalTime / nv;
+          nv += 1
+        }
+        requestAnimationFrame(f);
+      }
+      f();
+
+      diffDom1 = function(v) {
+        for(i = 0; i < n; i++) {
+          a[i].nodeValue = v % 2
+        }
+      }
+
+      diffDom2 = function(v) {
+        main.innerHTML = s[v % 2]
+      }
+    </script>
+  </body>
+</html>
