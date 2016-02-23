@@ -1,3 +1,3 @@
-# ReadTea MVC Todo Application Example
-[The Application Page](http://special-k.github.io/repaint)
-[The Application Page](http://special-k.github.io/repaint/index3.html)
+# dbmonster
+[Без requestAnimationFrame](http://special-k.github.io/repaint)  
+[С requestAnimationFrame](http://special-k.github.io/repaint/index3.html)
